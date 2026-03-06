@@ -43,6 +43,19 @@ public class Auction
         }
     }
     
+    public void closed()
+    {
+        for(Lot aLot : listOfLots) {
+            Bid highest = aLot.getHighestBid();
+            if (highest == null){
+                System.out.println("No bid for this lot");
+            } else {
+                System.out.println("The successful bidder is" +aLot.getHighestBid().getBidder());
+                System.out.println("The bid value is" +aLot.getHighestBid().getValue());
+            }
+        }
+    }
+    
     /**
      * Make a bid for a lot.
      * A message is printed indicating whether the bid is successful or not.
